@@ -12,6 +12,16 @@ h1 {
 }
 
 .column-full {
+  width: 100%;
+}
+
+.search-bar {
   text-align: center;
-  padding: 20%;
+  padding: 166px;
+}
+
+.breed-select {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
 }
