@@ -20,47 +20,51 @@ xhr.addEventListener('load', function () {
 });
 xhr.send();
 
+function generateLi(breed) {
+  var breedImg = document.createElement('img');
+  breedImg.setAttribute('class', 'breedimg');
+  breedImg.setAttribute('src', breed.image.url);
+  $columnImg.appendChild(breedImg);
+
+  var li = document.createElement('li');
+  li.setAttribute('class', 'breed-fact');
+
+  var breedName = document.createElement('h4');
+  breedName.textContent = breed.name;
+  li.appendChild(breedName);
+
+  var breedFor = document.createElement('p');
+  breedFor.textContent = 'Breed For: ' + breed.bred_for;
+  li.appendChild(breedFor);
+
+  var breedGroup = document.createElement('p');
+  breedGroup.textContent = 'Breed Group: ' + breed.breed_group;
+  li.appendChild(breedGroup);
+
+  var breedWeight = document.createElement('p');
+  breedWeight.textContent = 'Weight: ' + breed.weight.imperial;
+  li.appendChild(breedWeight);
+
+  var breedHeight = document.createElement('p');
+  breedHeight.textContent = 'Height: ' + breed.height.imperial;
+  li.appendChild(breedHeight);
+
+  var breedLifespan = document.createElement('p');
+  breedLifespan.textContent = 'Life-span: ' + breed.life_span;
+  li.appendChild(breedLifespan);
+
+  var breedTemperament = document.createElement('p');
+  breedTemperament.textContent = 'Temperament: ' + breed.temperament;
+  li.appendChild(breedTemperament);
+  return li;
+}
+
 $breedSelect.addEventListener('change', function (event) {
   $searchForm.className = 'hidden';
   $breedininforPage.className = ' ';
   for (var i = 0; i < xhr.response.length; i++) {
     if (event.target.value === xhr.response[i].name) {
-      var breedImg = document.createElement('img');
-      breedImg.setAttribute('class', 'breedimg');
-      breedImg.setAttribute('src', xhr.response[i].image.url);
-      $columnImg.appendChild(breedImg);
-
-      var li = document.createElement('li');
-      li.setAttribute('class', 'breed-fact');
-
-      var breedName = document.createElement('h4');
-      breedName.textContent = xhr.response[i].name;
-      li.appendChild(breedName);
-
-      var breedFor = document.createElement('p');
-      breedFor.textContent = 'Breed For: ' + xhr.response[i].bred_for;
-      li.appendChild(breedFor);
-
-      var breedGroup = document.createElement('p');
-      breedGroup.textContent = 'Breed Group: ' + xhr.response[i].breed_group;
-      li.appendChild(breedGroup);
-
-      var breedWeight = document.createElement('p');
-      breedWeight.textContent = 'Weight: ' + xhr.response[i].weight.imperial;
-      li.appendChild(breedWeight);
-
-      var breedHeight = document.createElement('p');
-      breedHeight.textContent = 'Height: ' + xhr.response[i].height.imperial;
-      li.appendChild(breedHeight);
-
-      var breedLifespan = document.createElement('p');
-      breedLifespan.textContent = 'Life-span: ' + xhr.response[i].life_span;
-      li.appendChild(breedLifespan);
-
-      var breedTemperament = document.createElement('p');
-      breedTemperament.textContent = 'Temperament: ' + xhr.response[i].temperament;
-      li.appendChild(breedTemperament);
-
+      var li = generateLi(xhr.response[i]);
       $breedinfor.appendChild(li);
     }
 
