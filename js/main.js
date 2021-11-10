@@ -67,7 +67,5 @@ $breedSelect.addEventListener('change', function (event) {
       var li = generateLi(xhr.response[i]);
       $breedinfor.appendChild(li);
     }
-
   }
-
 });

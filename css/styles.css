@@ -10,3 +10,14 @@ header {
 h1 {
   justify-content: center;
 }
+
+.add-fav {
+  color: red;
+  line-height: 24px;
+  padding: 1rem;
+}
+
+.row-btn {
+  display: flex;
+  justify-content: end;
+}
