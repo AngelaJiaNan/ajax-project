@@ -48,6 +48,7 @@
 
 @media only screen and (min-width: 375px) {
   .container {
+    padding: 0 2rem;
     flex-basis: 50%;
   }
 
@@ -63,10 +64,18 @@
   .column-half {
     width: 100%;
   }
+
+  .column-half-img {
+    width: 100%;
+  }
 }
 
 @media only screen and (min-width: 768px) {
   .column-half {
+    width: 50%;
+  }
+
+  .column-half-img {
     width: 50%;
   }
 }
