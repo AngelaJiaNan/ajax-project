@@ -9,10 +9,10 @@ var data = {
 
 window.addEventListener('beforeunload', function () {
   var dataJSON = JSON.stringify(data);
-  localStorage.setItem('breed', dataJSON);
+  localStorage.setItem('favbreed', dataJSON);
 });
 
-var previousDataJSON = localStorage.getItem('breed');
+var previousDataJSON = localStorage.getItem('favbreed');
 
 if (previousDataJSON) {
   data = JSON.parse(previousDataJSON);

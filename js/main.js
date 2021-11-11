@@ -1,12 +1,12 @@
 var $breedSelect = document.querySelector('.breed-select');
 var $columnImg = document.querySelector('.column-half-img');
 var $breedinfor = document.querySelector('.breed-infor');
-var $searchForm = document.querySelector('.search-page');
-var $breedininforPage = document.querySelector('.breedininfor-page');
-var $favoritesPageHid = document.querySelector('.hidden');
+var $searchForm = document.querySelector('#search-page');
+var $breedininforPage = document.querySelector('#breedininfor-page');
+var $favoritesPageHid = document.querySelector('#fav-list');
 var $addFavorite = document.querySelector('.add-fav');
 var $favbreedtext = document.querySelector('.fav-breed');
-var $favoriteA = document.querySelector('#list');
+var $views = document.querySelectorAll('.view');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -67,6 +67,7 @@ $breedSelect.addEventListener('change', function (event) {
   $searchForm.classList.remove('search-page');
   $searchForm.classList.add('hidden');
   $breedininforPage.className = ' ';
+
   for (var i = 0; i < xhr.response.length; i++) {
     if (event.target.value === xhr.response[i].name) {
       var li = generateLi(xhr.response[i]);
@@ -112,12 +113,20 @@ function generatefavLi(currentbreed) {
   return li;
 }
 
-$favoriteA.addEventListener('click', function (event) {
+// var $views = document.querySelectorAll('.view');
+var $navbar = document.querySelector('.nav');
+// var $navitem = document.querySelectorAll('.view-change');
+
+$navbar.addEventListener('click', function (event) {
   event.preventDefault();
-  $searchForm.classList.add('hidden');
-  $breedininforPage.classList.add('hidden');
-  $favoritesPageHid.className = ' ';
-  for (var i = 0; i < data.favorites.length; i++) {
-    generatefavLi(data.favorites[i]);
+  var viewName = event.target.getAttribute('data-view');
+
+  for (var viewIndex = 0; viewIndex < $views.length; viewIndex++) {
+    if ($views[viewIndex].getAttribute('data-view') !== viewName) {
+      $views[viewIndex].className = 'view hidden';
+    } else {
+      $views[viewIndex].className = 'view';
+    }
   }
+
 });
