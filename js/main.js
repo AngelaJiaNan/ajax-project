@@ -6,6 +6,7 @@ var $breedininforPage = document.querySelector('.breedininfor-page');
 var $favoritesPageHid = document.querySelector('.hidden');
 var $addFavorite = document.querySelector('.add-fav');
 var $favbreedtext = document.querySelector('.fav-breed');
+var $favoriteA = document.querySelector('#list');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -76,9 +77,11 @@ $breedSelect.addEventListener('change', function (event) {
 });
 
 $addFavorite.addEventListener('click', function (event) {
+  event.preventDefault();
   $breedininforPage.classList.add('hidden');
   $favoritesPageHid.className = ' ';
   data.favorites.push(data.selectedBreed);
+
   for (var i = 0; i < data.favorites.length; i++) {
     generatefavLi(data.favorites[i]);
   }
@@ -108,3 +111,13 @@ function generatefavLi(currentbreed) {
   $favbreedtext.appendChild(li);
   return li;
 }
+
+$favoriteA.addEventListener('click', function (event) {
+  event.preventDefault();
+  $searchForm.classList.add('hidden');
+  $breedininforPage.classList.add('hidden');
+  $favoritesPageHid.className = ' ';
+  for (var i = 0; i < data.favorites.length; i++) {
+    generatefavLi(data.favorites[i]);
+  }
+});
