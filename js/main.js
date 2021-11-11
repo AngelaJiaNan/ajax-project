@@ -1,8 +1,12 @@
 var $breedSelect = document.querySelector('.breed-select');
 var $columnImg = document.querySelector('.column-half-img');
 var $breedinfor = document.querySelector('.breed-infor');
-var $searchForm = document.querySelector('.search-page');
-var $breedininforPage = document.querySelector('.breedininfor-page');
+var $searchForm = document.querySelector('#search-page');
+var $breedininforPage = document.querySelector('#breedininfor-page');
+var $favoritesPageHid = document.querySelector('#fav-list');
+var $addFavorite = document.querySelector('.add-fav');
+var $favbreedtext = document.querySelector('.fav-breed');
+var $views = document.querySelectorAll('.view');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -60,14 +64,69 @@ function generateLi(breed) {
 }
 
 $breedSelect.addEventListener('change', function (event) {
-  $searchForm.className = 'hidden';
+  $searchForm.classList.remove('search-page');
+  $searchForm.classList.add('hidden');
   $breedininforPage.className = ' ';
+
   for (var i = 0; i < xhr.response.length; i++) {
     if (event.target.value === xhr.response[i].name) {
       var li = generateLi(xhr.response[i]);
       $breedinfor.appendChild(li);
+      data.selectedBreed = xhr.response[i];
     }
+  }
+});
 
+$addFavorite.addEventListener('click', function (event) {
+  event.preventDefault();
+  $breedininforPage.classList.add('hidden');
+  $favoritesPageHid.className = ' ';
+  data.favorites.push(data.selectedBreed);
+
+  for (var i = 0; i < data.favorites.length; i++) {
+    generatefavLi(data.favorites[i]);
+  }
+});
+
+function generatefavLi(currentbreed) {
+  var li = document.createElement('li');
+  li.setAttribute('class', 'row');
+
+  var columnHalf = document.createElement('div');
+  columnHalf.setAttribute('class', 'column-half');
+
+  var favbreedImg = document.createElement('img');
+  favbreedImg.setAttribute('class', 'breedimg');
+  favbreedImg.setAttribute('src', currentbreed.image.url);
+  columnHalf.appendChild(favbreedImg);
+  li.appendChild(columnHalf);
+
+  var columnRightHalf = document.createElement('div');
+  columnRightHalf.setAttribute('class', 'column-half');
+
+  var favbreedName = document.createElement('h5');
+  favbreedName.textContent = currentbreed.name;
+  columnRightHalf.appendChild(favbreedName);
+  li.appendChild(columnRightHalf);
+
+  $favbreedtext.appendChild(li);
+  return li;
+}
+
+// var $views = document.querySelectorAll('.view');
+var $navbar = document.querySelector('.nav');
+// var $navitem = document.querySelectorAll('.view-change');
+
+$navbar.addEventListener('click', function (event) {
+  event.preventDefault();
+  var viewName = event.target.getAttribute('data-view');
+
+  for (var viewIndex = 0; viewIndex < $views.length; viewIndex++) {
+    if ($views[viewIndex].getAttribute('data-view') !== viewName) {
+      $views[viewIndex].className = 'view hidden';
+    } else {
+      $views[viewIndex].className = 'view';
+    }
   }
 
 });

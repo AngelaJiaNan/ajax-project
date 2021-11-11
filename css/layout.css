@@ -22,15 +22,11 @@
   width: 100%;
 }
 
-.row {
-  display: flex;
-}
-
-.column-half-img {
+.column-half {
   width: 50%;
 }
 
-.column-half {
+.column-half-img {
   width: 50%;
 }
 

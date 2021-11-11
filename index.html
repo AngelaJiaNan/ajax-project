@@ -16,12 +16,18 @@
         <div class="column-half">
           <h1>Dog 101</h1>
         </div>
+        <div class="column-half">
+          <div class="nav">
+            <a href="" id="search" class ="view-change" data-view="search-form">Search</a>
+            <a href="" id="list" class ="view-change" data-view="favourite-list">Favorites</a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div data-view="search-form" class="search-page">
+      <div data-view="search-form" class="view" id="search-page">
         <div class="row">
           <div class="column-full">
             <div class="search-bar">
@@ -33,7 +39,7 @@
       </div>
     </div>
     <div class="container">
-      <div data-view="breed-data" class="breedininfor-page">
+      <div data-view="breed-data" class="view hidden" id="breedininfor-page">
         <div class ="row">
           <div class ="column-full">
             <h3>Breed Information</h3>
@@ -45,8 +51,23 @@
             <ul class="breed-infor"></ul>
           </div>
         </div>
+        <div class="row-btn">
+          <div class="add-fav">Add to Favorites</div>
+        </div>
+    </div>
+    <div class="container">
+      <div data-view="favourite-list" class="view hidden" id="fav-list">
+        <div class="row">
+          <div class="column-full">
+            <h4>Favorite Breed:</h4>
+          </div>
+        </div>
+        <div class="row">
+            <ul class= "fav-breed"></ul>
+        </div>
       </div>
     </div>
+  </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
