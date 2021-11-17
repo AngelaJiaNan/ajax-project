@@ -112,6 +112,11 @@ function generatefavLi(currentbreed) {
   deleteBtn.addEventListener('click', function (event) {
     $modal.className = 'modal show';
   });
+  var $noBTN = document.querySelector('#noBTN');
+  $noBTN.addEventListener('click', function (event) {
+    event.preventDefault();
+    $modal.className = 'modal hidden';
+  });
 
   var favbreedName = document.createElement('h5');
   favbreedName.textContent = currentbreed.name;
