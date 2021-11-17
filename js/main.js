@@ -92,6 +92,7 @@ $addFavorite.addEventListener('click', function (event) {
 function generatefavLi(currentbreed) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row');
+  li.setAttribute('data-entry-id', currentbreed.id);
 
   var columnHalf = document.createElement('div');
   columnHalf.setAttribute('class', 'column-half');
@@ -107,6 +108,7 @@ function generatefavLi(currentbreed) {
 
   var deleteBtn = document.createElement('i');
   deleteBtn.setAttribute('class', 'fas fa-times');
+  deleteBtn.setAttribute('data-entry-id', currentbreed.id);
   columnRightHalf.appendChild(deleteBtn);
   var $modal = document.querySelector('.modal');
   deleteBtn.addEventListener('click', function (event) {
