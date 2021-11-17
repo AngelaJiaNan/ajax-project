@@ -7,6 +7,7 @@ var $favoritesPageHid = document.querySelector('#fav-list');
 var $addFavorite = document.querySelector('.add-fav');
 var $favbreedtext = document.querySelector('.fav-breed');
 var $views = document.querySelectorAll('.view');
+var $navbar = document.querySelector('.nav');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -104,6 +105,14 @@ function generatefavLi(currentbreed) {
   var columnRightHalf = document.createElement('div');
   columnRightHalf.setAttribute('class', 'column-half');
 
+  var deleteBtn = document.createElement('i');
+  deleteBtn.setAttribute('class', 'fas fa-times');
+  columnRightHalf.appendChild(deleteBtn);
+  var $modal = document.querySelector('.modal');
+  deleteBtn.addEventListener('click', function (event) {
+    $modal.className = 'modal show';
+  });
+
   var favbreedName = document.createElement('h5');
   favbreedName.textContent = currentbreed.name;
   columnRightHalf.appendChild(favbreedName);
@@ -112,10 +121,6 @@ function generatefavLi(currentbreed) {
   $favbreedtext.appendChild(li);
   return li;
 }
-
-// var $views = document.querySelectorAll('.view');
-var $navbar = document.querySelector('.nav');
-// var $navitem = document.querySelectorAll('.view-change');
 
 $navbar.addEventListener('click', function (event) {
   event.preventDefault();
@@ -128,5 +133,4 @@ $navbar.addEventListener('click', function (event) {
       $views[viewIndex].className = 'view';
     }
   }
-
 });
