@@ -46,6 +46,7 @@ ul {
 
 .fav-breed {
   text-align: center;
+  margin: -2rem;
 }
 
 i {
@@ -121,4 +122,15 @@ textarea {
 
 .inputComment {
   font-style: italic;
+}
+
+h4 {
+  font-size: 20px;
+  margin: 1rem;
+}
+
+h5,
+h4,
+h3 {
+  font-size: 20px;
 }
