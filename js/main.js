@@ -123,6 +123,11 @@ function generatefavLi(currentbreed) {
   var favbreedName = document.createElement('h5');
   favbreedName.textContent = currentbreed.name;
   columnRightHalf.appendChild(favbreedName);
+
+  var addComment = document.createElement('button');
+  addComment.setAttribute('class', 'addBTN');
+  addComment.textContent = 'Add Comment';
+  columnRightHalf.appendChild(addComment);
   li.appendChild(columnRightHalf);
 
   $favbreedtext.appendChild(li);

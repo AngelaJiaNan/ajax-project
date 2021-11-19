@@ -99,3 +99,13 @@ i {
 .show {
   display: block !important;
 }
+
+.addBTN {
+  border: none;
+  color: red;
+  background-color: white;
+}
+
+li {
+  margin: 2rem;
+}
