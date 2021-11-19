@@ -124,10 +124,30 @@ function generatefavLi(currentbreed) {
   favbreedName.textContent = currentbreed.name;
   columnRightHalf.appendChild(favbreedName);
 
+  var commentForm = document.createElement('form');
+
+  var commentBox = document.createElement('textarea');
+  commentBox.setAttribute('class', 'text');
+  commentForm.appendChild(commentBox);
+
   var addComment = document.createElement('button');
   addComment.setAttribute('class', 'addBTN');
+  addComment.setAttribute('type', 'submit');
   addComment.textContent = 'Add Comment';
-  columnRightHalf.appendChild(addComment);
+
+  commentForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var commentText = document.createElement('p');
+    commentText.setAttribute('class', 'inputComment');
+    commentText.textContent = commentForm.elements[0].value;
+    columnRightHalf.appendChild(commentText);
+    commentForm.classList.add('hidden');
+  });
+
+  commentForm.appendChild(addComment);
+
+  columnRightHalf.appendChild(commentForm);
+
   li.appendChild(columnRightHalf);
 
   $favbreedtext.appendChild(li);
