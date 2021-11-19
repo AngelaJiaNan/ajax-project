@@ -7,6 +7,7 @@ var $favoritesPageHid = document.querySelector('#fav-list');
 var $addFavorite = document.querySelector('.add-fav');
 var $favbreedtext = document.querySelector('.fav-breed');
 var $views = document.querySelectorAll('.view');
+var $navbar = document.querySelector('.nav');
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -64,6 +65,7 @@ function generateLi(breed) {
 }
 
 $breedSelect.addEventListener('change', function (event) {
+
   $searchForm.classList.remove('search-page');
   $searchForm.classList.add('hidden');
   $breedininforPage.className = ' ';
@@ -88,9 +90,13 @@ $addFavorite.addEventListener('click', function (event) {
   }
 });
 
+var currentIdtoDelete = 0;
+var $modal = document.querySelector('.modal');
+
 function generatefavLi(currentbreed) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row');
+  li.setAttribute('data-entry-id', currentbreed.id);
 
   var columnHalf = document.createElement('div');
   columnHalf.setAttribute('class', 'column-half');
@@ -104,6 +110,16 @@ function generatefavLi(currentbreed) {
   var columnRightHalf = document.createElement('div');
   columnRightHalf.setAttribute('class', 'column-half');
 
+  var deleteBtn = document.createElement('i');
+  deleteBtn.setAttribute('class', 'fas fa-times');
+  deleteBtn.setAttribute('data-entry-id', currentbreed.id);
+  columnRightHalf.appendChild(deleteBtn);
+
+  deleteBtn.addEventListener('click', function (event) {
+    currentIdtoDelete = event.target.attributes[1].value;
+    $modal.className = 'modal show';
+  });
+
   var favbreedName = document.createElement('h5');
   favbreedName.textContent = currentbreed.name;
   columnRightHalf.appendChild(favbreedName);
@@ -113,9 +129,24 @@ function generatefavLi(currentbreed) {
   return li;
 }
 
-// var $views = document.querySelectorAll('.view');
-var $navbar = document.querySelector('.nav');
-// var $navitem = document.querySelectorAll('.view-change');
+var $noBTN = document.querySelector('#noBTN');
+$noBTN.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal hidden';
+});
+
+var $yesBTN = document.querySelector('#yesBTN');
+$yesBTN.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal hidden';
+  var liToRemove = document.querySelector(`[data-entry-id="${currentIdtoDelete}"]`);
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === parseInt(currentIdtoDelete)) {
+      data.favorites.splice(i, 1);
+    }
+  }
+  liToRemove.remove();
+});
 
 $navbar.addEventListener('click', function (event) {
   event.preventDefault();
@@ -128,5 +159,4 @@ $navbar.addEventListener('click', function (event) {
       $views[viewIndex].className = 'view';
     }
   }
-
 });
