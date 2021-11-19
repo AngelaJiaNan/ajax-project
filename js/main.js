@@ -65,6 +65,7 @@ function generateLi(breed) {
 }
 
 $breedSelect.addEventListener('change', function (event) {
+
   $searchForm.classList.remove('search-page');
   $searchForm.classList.add('hidden');
   $breedininforPage.className = ' ';
@@ -89,6 +90,9 @@ $addFavorite.addEventListener('click', function (event) {
   }
 });
 
+var currentIdtoDelete = 0;
+var $modal = document.querySelector('.modal');
+
 function generatefavLi(currentbreed) {
   var li = document.createElement('li');
   li.setAttribute('class', 'row');
@@ -110,14 +114,10 @@ function generatefavLi(currentbreed) {
   deleteBtn.setAttribute('class', 'fas fa-times');
   deleteBtn.setAttribute('data-entry-id', currentbreed.id);
   columnRightHalf.appendChild(deleteBtn);
-  var $modal = document.querySelector('.modal');
+
   deleteBtn.addEventListener('click', function (event) {
+    currentIdtoDelete = event.target.attributes[1].value;
     $modal.className = 'modal show';
-  });
-  var $noBTN = document.querySelector('#noBTN');
-  $noBTN.addEventListener('click', function (event) {
-    event.preventDefault();
-    $modal.className = 'modal hidden';
   });
 
   var favbreedName = document.createElement('h5');
@@ -128,6 +128,25 @@ function generatefavLi(currentbreed) {
   $favbreedtext.appendChild(li);
   return li;
 }
+
+var $noBTN = document.querySelector('#noBTN');
+$noBTN.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal hidden';
+});
+
+var $yesBTN = document.querySelector('#yesBTN');
+$yesBTN.addEventListener('click', function (event) {
+  event.preventDefault();
+  $modal.className = 'modal hidden';
+  var liToRemove = document.querySelector(`[data-entry-id="${currentIdtoDelete}"]`);
+  for (var i = 0; i < data.favorites.length; i++) {
+    if (data.favorites[i].id === parseInt(currentIdtoDelete)) {
+      data.favorites.splice(i, 1);
+    }
+  }
+  liToRemove.remove();
+});
 
 $navbar.addEventListener('click', function (event) {
   event.preventDefault();
