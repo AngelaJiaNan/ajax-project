@@ -109,3 +109,10 @@ i {
 li {
   margin: 2rem;
 }
+
+label,
+input,
+textarea {
+  display: block;
+  width: 100%;
+}
