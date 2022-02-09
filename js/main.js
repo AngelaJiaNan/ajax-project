@@ -1,23 +1,23 @@
-var $breedSelect = document.querySelector('.breed-select');
-var $columnImg = document.querySelector('.column-half-img');
-var $breedinfor = document.querySelector('.breed-infor');
-var $searchForm = document.querySelector('#search-page');
-var $breedininforPage = document.querySelector('#breedininfor-page');
-var $favoritesPageHid = document.querySelector('#fav-list');
-var $addFavorite = document.querySelector('.add-fav');
-var $favbreedtext = document.querySelector('.fav-breed');
-var $views = document.querySelectorAll('.view');
-var $navbar = document.querySelector('.nav');
+const $breedSelect = document.querySelector('.breed-select');
+const $columnImg = document.querySelector('.column-half-img');
+const $breedinfor = document.querySelector('.breed-infor');
+const $searchForm = document.querySelector('#search-page');
+const $breedininforPage = document.querySelector('#breedininfor-page');
+const $favoritesPageHid = document.querySelector('#fav-list');
+const $addFavorite = document.querySelector('.add-fav');
+const $favbreedtext = document.querySelector('.fav-breed');
+const $views = document.querySelectorAll('.view');
+const $navbar = document.querySelector('.nav');
 
-var xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
 xhr.responseType = 'json';
 xhr.setRequestHeader('x-api-key', '7903dc02-5a8b-4378-b5b6-e81f1cbaac27');
 xhr.addEventListener('load', function () {
-  for (var i = 0; i < xhr.response.length; i++) {
+  for (let i = 0; i < xhr.response.length; i++) {
     // console.log(xhr.response);
     // console.log(xhr.status);
-    var option = document.createElement('option');
+    const option = document.createElement('option');
     option.setAttribute('value', xhr.response[i].name);
     option.textContent = xhr.response[i].name;
     $breedSelect.appendChild(option);
@@ -26,39 +26,39 @@ xhr.addEventListener('load', function () {
 xhr.send();
 
 function generateLi(breed) {
-  var breedImg = document.createElement('img');
+  const breedImg = document.createElement('img');
   breedImg.setAttribute('class', 'breedimg');
   breedImg.setAttribute('src', breed.image.url);
   $columnImg.appendChild(breedImg);
 
-  var li = document.createElement('li');
+  const li = document.createElement('li');
   li.setAttribute('class', 'breed-fact');
 
-  var breedName = document.createElement('h4');
+  const breedName = document.createElement('h4');
   breedName.textContent = breed.name;
   li.appendChild(breedName);
 
-  var breedFor = document.createElement('p');
+  const breedFor = document.createElement('p');
   breedFor.textContent = 'Breed For: ' + breed.bred_for;
   li.appendChild(breedFor);
 
-  var breedGroup = document.createElement('p');
+  const breedGroup = document.createElement('p');
   breedGroup.textContent = 'Breed Group: ' + breed.breed_group;
   li.appendChild(breedGroup);
 
-  var breedWeight = document.createElement('p');
+  const breedWeight = document.createElement('p');
   breedWeight.textContent = 'Weight: ' + breed.weight.imperial;
   li.appendChild(breedWeight);
 
-  var breedHeight = document.createElement('p');
+  const breedHeight = document.createElement('p');
   breedHeight.textContent = 'Height: ' + breed.height.imperial;
   li.appendChild(breedHeight);
 
-  var breedLifespan = document.createElement('p');
+  const breedLifespan = document.createElement('p');
   breedLifespan.textContent = 'Life-span: ' + breed.life_span;
   li.appendChild(breedLifespan);
 
-  var breedTemperament = document.createElement('p');
+  const breedTemperament = document.createElement('p');
   breedTemperament.textContent = 'Temperament: ' + breed.temperament;
   li.appendChild(breedTemperament);
   return li;
@@ -70,9 +70,9 @@ $breedSelect.addEventListener('change', function (event) {
   $searchForm.classList.add('hidden');
   $breedininforPage.className = ' ';
 
-  for (var i = 0; i < xhr.response.length; i++) {
+  for (let i = 0; i < xhr.response.length; i++) {
     if (event.target.value === xhr.response[i].name) {
-      var li = generateLi(xhr.response[i]);
+      const li = generateLi(xhr.response[i]);
       $breedinfor.appendChild(li);
       data.selectedBreed = xhr.response[i];
     }
@@ -85,7 +85,7 @@ $addFavorite.addEventListener('click', function (event) {
   $favoritesPageHid.className = ' ';
   data.favorites.push(data.selectedBreed);
 
-  for (var i = 0; i < data.favorites.length; i++) {
+  for (let i = 0; i < data.favorites.length; i++) {
     generatefavLi(data.favorites[i]);
   }
 });
@@ -120,24 +120,24 @@ function generatefavLi(currentbreed) {
     $modal.className = 'modal show';
   });
 
-  var favbreedName = document.createElement('h5');
+  const favbreedName = document.createElement('h5');
   favbreedName.textContent = currentbreed.name;
   columnRightHalf.appendChild(favbreedName);
 
-  var commentForm = document.createElement('form');
+  const commentForm = document.createElement('form');
 
-  var commentBox = document.createElement('textarea');
+  const commentBox = document.createElement('textarea');
   commentBox.setAttribute('class', 'text');
   commentForm.appendChild(commentBox);
 
-  var addComment = document.createElement('button');
+  const addComment = document.createElement('button');
   addComment.setAttribute('class', 'addBTN');
   addComment.setAttribute('type', 'submit');
   addComment.textContent = 'Add Comment';
 
   commentForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    var commentText = document.createElement('p');
+    const commentText = document.createElement('p');
     commentText.setAttribute('class', 'inputComment');
     commentText.textContent = commentForm.elements[0].value;
     columnRightHalf.appendChild(commentText);
@@ -154,18 +154,18 @@ function generatefavLi(currentbreed) {
   return li;
 }
 
-var $noBTN = document.querySelector('#no-btn');
+const $noBTN = document.querySelector('#no-btn');
 $noBTN.addEventListener('click', function (event) {
   event.preventDefault();
   $modal.className = 'modal hidden';
 });
 
-var $yesBTN = document.querySelector('#yes-btn');
+const $yesBTN = document.querySelector('#yes-btn');
 $yesBTN.addEventListener('click', function (event) {
   event.preventDefault();
   $modal.className = 'modal hidden';
-  var liToRemove = document.querySelector(`[data-entry-id="${currentIdtoDelete}"]`);
-  for (var i = 0; i < data.favorites.length; i++) {
+  const liToRemove = document.querySelector(`[data-entry-id="${currentIdtoDelete}"]`);
+  for (let i = 0; i < data.favorites.length; i++) {
     if (data.favorites[i].id === parseInt(currentIdtoDelete)) {
       data.favorites.splice(i, 1);
     }
@@ -175,9 +175,9 @@ $yesBTN.addEventListener('click', function (event) {
 
 $navbar.addEventListener('click', function (event) {
   event.preventDefault();
-  var viewName = event.target.getAttribute('data-view');
+  const viewName = event.target.getAttribute('data-view');
 
-  for (var viewIndex = 0; viewIndex < $views.length; viewIndex++) {
+  for (let viewIndex = 0; viewIndex < $views.length; viewIndex++) {
     if ($views[viewIndex].getAttribute('data-view') !== viewName) {
       $views[viewIndex].className = 'view hidden';
     } else {
