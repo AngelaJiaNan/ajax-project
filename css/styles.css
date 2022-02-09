@@ -133,3 +133,9 @@ h4,
 h3 {
   font-size: 1.25rem;
 }
+
+.breed-select {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 5px;
+}
