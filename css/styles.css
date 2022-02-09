@@ -24,12 +24,15 @@ h1 {
 a {
   margin: 3rem;
   color: white;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .add-fav {
   color: red;
   line-height: 24px;
   padding: 1rem;
+  cursor: pointer;
 }
 
 .row-btn {
@@ -52,6 +55,7 @@ ul {
 
 i {
   float: right;
+  cursor: pointer;
 }
 
 .modal-button {
@@ -65,12 +69,14 @@ i {
   border: none;
   color: red;
   background-color: white;
+  cursor: pointer;
 }
 
 #no-btn {
   border: none;
   color: red;
   background-color: white;
+  cursor: pointer;
 }
 
 .modal {
@@ -105,6 +111,7 @@ i {
   border: none;
   color: red;
   background-color: white;
+  cursor: pointer;
 }
 
 li {
@@ -138,4 +145,5 @@ h3 {
   text-align: center;
   padding: 1rem;
   border-radius: 5px;
+  cursor: pointer;
 }
