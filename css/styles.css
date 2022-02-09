@@ -60,13 +60,13 @@ i {
   padding: 1rem;
 }
 
-#yesBTN {
+#yes-btn {
   border: none;
   color: red;
   background-color: white;
 }
 
-#noBTN {
+#no-btn {
   border: none;
   color: red;
   background-color: white;

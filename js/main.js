@@ -154,13 +154,13 @@ function generatefavLi(currentbreed) {
   return li;
 }
 
-var $noBTN = document.querySelector('#noBTN');
+var $noBTN = document.querySelector('#no-btn');
 $noBTN.addEventListener('click', function (event) {
   event.preventDefault();
   $modal.className = 'modal hidden';
 });
 
-var $yesBTN = document.querySelector('#yesBTN');
+var $yesBTN = document.querySelector('#yes-btn');
 $yesBTN.addEventListener('click', function (event) {
   event.preventDefault();
   $modal.className = 'modal hidden';
