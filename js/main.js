@@ -15,8 +15,6 @@ xhr.responseType = 'json';
 xhr.setRequestHeader('x-api-key', '7903dc02-5a8b-4378-b5b6-e81f1cbaac27');
 xhr.addEventListener('load', function () {
   for (let i = 0; i < xhr.response.length; i++) {
-    // console.log(xhr.response);
-    // console.log(xhr.status);
     const option = document.createElement('option');
     option.setAttribute('value', xhr.response[i].name);
     option.textContent = xhr.response[i].name;
