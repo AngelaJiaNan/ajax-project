@@ -129,7 +129,7 @@ function generatefavLi(currentbreed) {
   commentForm.appendChild(commentBox);
 
   const addComment = document.createElement('button');
-  addComment.setAttribute('class', 'addBTN');
+  addComment.setAttribute('class', 'add-btn');
   addComment.setAttribute('type', 'submit');
   addComment.textContent = 'Add Comment';
 
