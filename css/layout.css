@@ -35,7 +35,23 @@
   display: none;
 }
 
+.header-row {
+  display: flex;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-left: 5rem;
+}
+
 @media only screen and (min-width: 375px) {
+  .header-row {
+    margin-left: 1.5rem;
+    padding: 0;
+  }
+
+  .nav {
+    display: none;
+  }
+
   .container {
     padding: 0 2rem;
     flex-basis: 50%;
