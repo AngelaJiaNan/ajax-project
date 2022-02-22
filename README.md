@@ -9,3 +9,11 @@ I wanted to build a website that would give information about different dog bree
 # Live Demo
 
 Come and find your fury friend!
+
+
+### Technologies Used
+
+- HTML5
+- CSS3
+- Ajax
+- JavaScript
