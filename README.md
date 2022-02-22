@@ -9,7 +9,8 @@ I wanted to build a website that would give information about different dog bree
 # Live Demo
 
 Come and find your fury friend!
-[https://angelajianan.github.io/ajax-project/]
+
+https://angelajianan.github.io/ajax-project/
 
 # Technologies Used
 
