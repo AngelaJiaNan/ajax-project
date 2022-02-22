@@ -31,3 +31,14 @@ https://angelajianan.github.io/ajax-project/
 
 - User can create a dog breed post
 - User can edit their comments
+
+### Getting Started
+
+1. Clone the repository
+    ```shell
+    git clone https://angelajianan.github.io/ajax-project/
+    cd ajax-project
+    ```
+3. Install all dependencies with NPM
+    ```shell
+    npm install
