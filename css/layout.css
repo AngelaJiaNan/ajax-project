@@ -121,4 +121,13 @@
   .column-full {
     width: 100%;
   }
+
+  .text {
+    margin: 1rem;
+    padding: 5rem;
+  }
+
+  h5 {
+    margin: 3rem;
+  }
 }

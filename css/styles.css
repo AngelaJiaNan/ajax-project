@@ -13,7 +13,8 @@ h1 {
 
 .nav {
   padding: 2rem;
-  padding-left: 9rem;
+  display: flex;
+  justify-content: flex-end;
 }
 
 a {
