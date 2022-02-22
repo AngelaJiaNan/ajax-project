@@ -15,8 +15,39 @@ h1 {
   padding: 2rem;
 }
 
+/* .bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  opacity: 50%;
+} */
+
+.tabs {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  font-size: 22px;
+}
+
+.bottom-nav-bar {
+  background-color: #007bff;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 33;
+  gap: 7rem;
+}
+
+.bottom-nav-items-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
 a {
-  margin: 3rem;
   color: white;
   cursor: pointer;
   text-decoration: none;
