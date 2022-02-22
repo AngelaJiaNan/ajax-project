@@ -15,13 +15,13 @@ h1 {
   padding: 2rem;
 }
 
-/* .bottom-nav-item {
+.bottom-nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
   opacity: 50%;
-} */
+}
 
 .tabs {
   cursor: pointer;
