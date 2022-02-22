@@ -8,6 +8,7 @@ const $addFavorite = document.querySelector('.add-fav');
 const $favbreedtext = document.querySelector('.fav-breed');
 const $views = document.querySelectorAll('.view');
 const $navbar = document.querySelector('.nav');
+const $empty = document.querySelector('#empty');
 
 const xhr = new XMLHttpRequest();
 xhr.open('GET', ' https://api.thedogapi.com/v1/breeds');
@@ -79,6 +80,7 @@ $breedSelect.addEventListener('change', function (event) {
 
 $addFavorite.addEventListener('click', function (event) {
   event.preventDefault();
+  $empty.className = 'hidden';
   $breedininforPage.classList.add('hidden');
   $favoritesPageHid.className = ' ';
   data.favorites.push(data.selectedBreed);
