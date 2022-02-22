@@ -11,7 +11,7 @@ I wanted to build a website that would give information about different dog bree
 Come and find your fury friend!
 
 
-### Technologies Used
+# Technologies Used
 
 - HTML5
 - CSS3
