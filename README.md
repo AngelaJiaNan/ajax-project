@@ -19,6 +19,9 @@ https://angelajianan.github.io/ajax-project/
 - Ajax
 - JavaScript
 
+# Preview 
+https://media.giphy.com/media/8iNr3uAG541fbMxDrX/giphy.gif
+
 # Features
 
 - User can search breed by name
