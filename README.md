@@ -21,7 +21,7 @@ https://angelajianan.github.io/ajax-project/
 
 # Preview 
 
-![](gif here)
+![](https://media.giphy.com/media/61o62oZkzDrgB5zpsq/giphy.gif)
 # Features
 
 - User can search breed by name
