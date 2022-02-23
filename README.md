@@ -49,5 +49,6 @@ https://angelajianan.github.io/ajax-project/
     ```shell
     npm install
     
-3. Open the index.html
+3. ```shell
+Open the index.html
 
