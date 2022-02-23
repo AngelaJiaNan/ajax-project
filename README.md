@@ -18,6 +18,7 @@ https://angelajianan.github.io/ajax-project/
 - CSS3
 - Ajax
 - JavaScript
+- Dog API
 
 # Preview 
 -![](https://media.giphy.com/media/61o62oZkzDrgB5zpsq/giphy.gif)
