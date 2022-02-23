@@ -31,10 +31,11 @@ https://angelajianan.github.io/ajax-project/
 - User can comments on an breed
 - User can delete a breed from their favourites
 
-# Proposed features
+# Stretch features
 
 - User can create a dog breed post
 - User can edit their comments
+- User can search breed by weight or height
 
 ### Getting Started
 
