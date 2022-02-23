@@ -42,8 +42,8 @@ https://angelajianan.github.io/ajax-project/
 
 1. Clone the repository
     ```shell
-    git clone https://angelajianan.github.io/ajax-project/
-    cd ajax-project
+    git clone https://angelajianan.github.io/dog101/
+    cd dog101
     ```
 2. Install all dependencies with NPM
     ```shell
