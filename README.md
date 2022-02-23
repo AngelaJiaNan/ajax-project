@@ -45,6 +45,9 @@ https://angelajianan.github.io/ajax-project/
     git clone https://angelajianan.github.io/ajax-project/
     cd ajax-project
     ```
-3. Install all dependencies with NPM
+2. Install all dependencies with NPM
     ```shell
     npm install
+    
+3. Open the index.html
+
